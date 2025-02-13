@@ -8,6 +8,10 @@ import "highlight.js/styles/github-dark.css";
 import axios from 'axios';
 import './App.css';
 
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://codefix-3.onrender.com'  
+  : 'http://localhost:3000';
+
 function App() {
   // Load DRAFT from localStorage
   const [code, setCode] = useState(() => localStorage.getItem("code") || `function sum() {
