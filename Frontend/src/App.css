@@ -1,0 +1,102 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  position: relative;
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+}
+
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+}
+
+
+main .right {
+  background-color: #343434;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+
+
+.history {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #444;
+}
+
+.history h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #ddd; /* Slightly lighter for visibility */
+}
+
+.history-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #1a1a1a;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out; 
+}
+
+.history-item:hover {
+  background: #292929; 
+}
+
+.history-item pre {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap; 
+  word-break: break-word; 
+}
+
+.history-item small {
+  color: #888;
+  display: block;
+  margin-top: 0.3rem;
+}
