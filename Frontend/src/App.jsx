@@ -8,6 +8,8 @@ import "highlight.js/styles/github-dark.css";
 import axios from 'axios';
 import './App.css';
 
+// API URL configuration
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 function App() {
   // Load DRAFT from localStorage
@@ -32,7 +34,7 @@ function App() {
 
   async function fetchHistory() {
     try {
-      const response = await axios.get('http://localhost:3000/ai/history');
+      const response = await axios.get(`${API_URL}/ai/history`);
       setHistory(response.data);
     } catch (error) {
       console.error('Error fetching history:', error);
@@ -41,7 +43,7 @@ function App() {
 
   async function reviewCode() {
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { code });
+      const response = await axios.post(`${API_URL}/ai/get-review`, { code });
       setReview(response.data);
       fetchHistory(); // Refresh cloud history after submission
     } catch (error) {
@@ -70,7 +72,6 @@ function App() {
         </div>
         <div onClick={reviewCode} className="review">Review</div>
       </div>
-
       <div className="right">
         <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
         
