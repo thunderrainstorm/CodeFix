@@ -10,12 +10,7 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB Atlas'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://code-fix-ashy.vercel.app', 'http://localhost:5173']
-    : 'http://localhost:5173',
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
