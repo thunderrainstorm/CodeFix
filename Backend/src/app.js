@@ -10,10 +10,14 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB Atlas'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-// Update CORS configuration
+// Updated CORS configuration
 app.use(cors({
-    origin: ['https://your-vercel-domain.vercel.app', 'http://localhost:5173'],
-    methods: ['GET', 'POST'],
+    origin: [
+        'https://code-fix-bay.vercel.app',  // Your Vercel URL
+        'http://localhost:5173'             // Local development
+    ],
+    methods: ['GET', 'POST', 'OPTIONS'],    // Include OPTIONS for preflight
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
 
